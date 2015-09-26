@@ -20,8 +20,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                               password: '123456',
                               password_confirmation: '123456'}
     end
-
-    assert_select 'title', 'example user | Ruby on Rails Tutorial Sample App'
     assert_template 'users/show'
+    assert is_logged_in?
   end
 end
