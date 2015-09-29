@@ -20,6 +20,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     get edit_user_path(@user)
     log_in_as @user
     assert_redirected_to edit_user_path(@user)
+    assert_nil session[:forwarding_url]
     follow_redirect!
     assert_template 'users/edit'
     name = 'Foo Bar'
